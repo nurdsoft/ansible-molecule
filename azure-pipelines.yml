@@ -1,0 +1,25 @@
+trigger:
+- main
+
+# pool: default 
+
+pool:
+ vmImage: ubuntu-latest
+
+
+steps:
+  - checkout: self
+    path: nomadv1
+
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: "3.11.3"
+      architecture: 'x64'
+
+  - script: python3 -m pip install "molecule[lint]" "molecule[docker]" "ansible"
+    displayName: Install dependencies
+
+  - script: |
+      cd ./nomadv1
+      molecule test
+    displayName: Test relevant platforms
