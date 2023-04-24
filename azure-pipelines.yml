@@ -1,12 +1,10 @@
 trigger:
 - main
 
-# pool: default 
+pool: default 
 
-pool:
- vmImage: ubuntu-latest
- demands: Limit -equals DisAbleParallel 
-
+# pool:
+#  vmImage: ubuntu-latest
 
 steps:
   - checkout: self
