@@ -1,10 +1,10 @@
 trigger:
 - main
 
-# pool: default 
+pool: default 
 
-pool:
- vmImage: ubuntu-latest
+# pool:
+#  vmImage: ubuntu-latest
 
 
 steps:
